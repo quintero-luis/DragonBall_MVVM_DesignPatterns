@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="DesignPatterns" customModuleProvider="target">
+            <connections>
+                <outlet property="activityView" destination="nXu-X7-wDM" id="WFY-Dl-9ct"/>
+                <outlet property="errorContainerView" destination="OQZ-Dc-0xW" id="TQa-2g-Raw"/>
+                <outlet property="errorLabel" destination="fDg-jc-Q49" id="rCW-NG-Klh"/>
+                <outlet property="tableView" destination="QP7-bt-FnP" id="BhT-CW-8eP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="nXu-X7-wDM">
+                    <rect key="frame" x="186.66666666666666" y="428.66666666666669" width="20" height="20"/>
+                </activityIndicatorView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OQZ-Dc-0xW">
+                    <rect key="frame" x="159" y="405.33333333333331" width="75" height="66.666666666666686"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDg-jc-Q49">
+                            <rect key="frame" x="17.000000000000004" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-CU-1fz">
+                            <rect key="frame" x="0.0" y="32.333333333333371" width="75" height="34.333333333333343"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        </button>
+                    </subviews>
+                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-bt-FnP">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="OQZ-Dc-0xW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="Ac9-E3-fxN"/>
+                <constraint firstItem="nXu-X7-wDM" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="DYh-Wb-2EW"/>
+                <constraint firstItem="QP7-bt-FnP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EEL-0Q-Kp2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="QP7-bt-FnP" secondAttribute="top" id="MTI-Xg-9fc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="QP7-bt-FnP" secondAttribute="bottom" id="Yrg-i8-isq"/>
+                <constraint firstItem="OQZ-Dc-0xW" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="cGO-4R-5Ib"/>
+                <constraint firstItem="nXu-X7-wDM" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="d1b-aW-Kdf"/>
+                <constraint firstItem="OQZ-Dc-0xW" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="fyM-1F-WbP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QP7-bt-FnP" secondAttribute="trailing" id="uQH-ii-zqt"/>
+            </constraints>
+            <point key="canvasLocation" x="6" y="42"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
