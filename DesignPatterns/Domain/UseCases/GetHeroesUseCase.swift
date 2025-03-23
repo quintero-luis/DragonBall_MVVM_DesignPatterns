@@ -7,8 +7,10 @@ protocol GetHeroesUseCaseProtocol {
 final class GetHeroesUseCase: GetHeroesUseCaseProtocol {
     func run(completion: @escaping (Result<[HeroModel], Error>) -> Void) {
         GetHeroesAPIRequest()
+        // .perform { result in ... } ejecuta la petición de red y obtiene un Result<Data, Error>.
             .perform { result in
                 do {
+                    // result.get() intenta extraer los datos (Data).
                     let heroes = try result.get()
                     let mapper = HeroDTOToHeroModelMapper()
                     completion(.success(heroes.map { mapper.map($0) }))

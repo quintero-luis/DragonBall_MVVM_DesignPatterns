@@ -91,5 +91,13 @@ class HeroesListViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Navega a algún lado
+        let selectedHero = viewModel.heroes[indexPath.row]
+        
+        // Crear el builder para la vista de detalles del héroe
+        let heroesDetailBuilder = HeroesDetailBuilder()
+        let detailViewController = heroesDetailBuilder.build(heroName: selectedHero.name)
+        
+        // Navegar al detalle del héroe
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
