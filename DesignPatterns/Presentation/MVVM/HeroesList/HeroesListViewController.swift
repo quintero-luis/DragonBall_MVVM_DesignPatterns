@@ -98,6 +98,36 @@ class HeroesListViewController: UIViewController, UITableViewDelegate, UITableVi
         let detailViewController = heroesDetailBuilder.build(heroName: selectedHero.name)
         
         // Navegar al detalle del héroe
-        navigationController?.pushViewController(detailViewController, animated: true)
+//        navigationController?.pushViewController(detailViewController, animated: true)
+        show(detailViewController, sender: self)
     }
+    
+    
+    
+    
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        // Navega a algún lado
+//        let selectedHero = viewModel.heroes[indexPath.row]
+//        
+//        // Crear el builder para la vista de detalles del héroe
+//        let heroesDetailBuilder = HeroesDetailBuilder()
+//        let detailViewController = heroesDetailBuilder.build(heroName: selectedHero.name)
+//        
+//        // Navegar al detalle del héroe
+//        navigationController?.pushViewController(detailViewController, animated: true)
+//    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//            
+//            // Crear el controlador de vista vacío que usa el xib
+//            let emptyViewController = EmptyViewController()  // Este es el EmptyViewController
+//            
+//            // Envolver el EmptyViewController en un UINavigationController
+//            let navigationController = UINavigationController(rootViewController: emptyViewController)
+//            
+//            // Navegar al EmptyViewController dentro del UINavigationController
+//            navigationController.modalPresentationStyle = .fullScreen // Puedes usar esta línea si quieres que ocupe toda la pantalla
+//            present(navigationController, animated: true, completion: nil)
+//    }
 }

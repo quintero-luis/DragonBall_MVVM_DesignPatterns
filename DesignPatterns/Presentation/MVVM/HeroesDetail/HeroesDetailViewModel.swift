@@ -58,9 +58,11 @@ final class HeroesDetailViewModel {
     
     
     func loadHeroDetail(heroName: String) {
+        print("Calling loadHeroDetail with heroName: \(heroName)")
         onStateChanged.update(.loading)
         useCase.run(heroName: heroName) { [weak self] result in
             do {
+                print("hola")
                 let hero = try result.get()
                 self?.heroDetail = hero
                 self?.onStateChanged.update(.success(hero: hero))

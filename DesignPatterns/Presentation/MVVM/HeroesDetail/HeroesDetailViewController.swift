@@ -8,24 +8,21 @@
 import UIKit
 
 class HeroesDetailViewController: UIViewController {
-
-    @IBOutlet weak var imageViewDetail: UIImageView!
-    
-    @IBOutlet weak var nameLabelDetail: UILabel!
-    
-    @IBOutlet weak var descriptionLabelDetail: UILabel!
-    
-    
     @IBOutlet weak var activityIndicatorDetail: UIActivityIndicatorView!
     
-    @IBOutlet weak var stackDetail: UIStackView!
+    @IBOutlet weak var imageViewDetail: AsyncImage!
     
+    @IBOutlet weak var nameDetailLabel: UILabel!
     
+    @IBOutlet weak var descriptionDetailLabel: UILabel!
     private let viewModel: HeroesDetailViewModel
+    
+    var heroName: String = ""
+    
     
     init(viewModel: HeroesDetailViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: "HeroesDetailView", bundle: nil)
+        super.init(nibName: "HeroesDetailView", bundle: Bundle(for: type(of: self)))
     }
     
     
@@ -38,13 +35,7 @@ class HeroesDetailViewController: UIViewController {
         super.viewDidLoad()
         print("HeroesDetailViewController loaded")
         bind()
-        // Cargar los detalles del héroe con el ID correspondiente
-        if let heroName = viewModel.heroDetail?.name {
-            print("Loading hero details for heroId: \(heroName)")
-            viewModel.loadHeroDetail(heroName: heroName)
-                } else {
-                    print("No heroId found in viewModel")
-                }
+        viewModel.loadHeroDetail(heroName: heroName)
     }
     
     private func bind() {
@@ -60,19 +51,20 @@ class HeroesDetailViewController: UIViewController {
     
     private func renderSuccess(_ hero: HeroModel) {
         // Asignar los datos del héroe a los elementos de la vista
-        nameLabelDetail.text = hero.name
-        descriptionLabelDetail.text = hero.description
+        nameDetailLabel.text = hero.name
+        descriptionDetailLabel.text = hero.description
 //            imageViewDetail.image = UIImage(named: hero.photo)
         activityIndicatorDetail.stopAnimating()
         
-        nameLabelDetail.isHidden = false
+        nameDetailLabel.isHidden = false
+        present(HeroesDetailBuilder().build(heroName: hero.name), animated: true)
     }
     
     private func renderError(_ message: String) {
             // Mostrar el error en la vista, por ejemplo con un alerta
-//            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: .default))
-//            present(alert, animated: true)
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
         }
 
         private func renderLoading() {

@@ -9,19 +9,41 @@ import Foundation
 
 struct GetHeroDetailAPIRequest: HTTPRequest {
     // Esperar respuesta de tipo HeroDTO data transfer object
-    typealias Response = HeroDTO
-    
-    // Usamos GET como método porque queremos obtener algo
-    var method: Methods = .GET
-    
+    typealias Response = [HeroDTO]
+    let method: Methods = .POST
     // Path que será determinado dinámicanmente con el heroId
-    var path: String
+    let path: String = "/api/heros/all"
+    let body: (any Encodable)?
     
-    init(heroName: String) {
-        print("id")
-        self.path = "/api/heros/\(heroName)"
+    init(heroName: String = "") {
+        body = RequestDTO(heroName: "Goku")
     }
 }
+
+private extension GetHeroDetailAPIRequest {
+    struct RequestDTO: Codable {
+        let heroName: String
+    }
+}
+
+
+
+//struct GetHeroDetailAPIRequest: HTTPRequest {
+//    // Esperar respuesta de tipo HeroDTO data transfer object
+//    typealias Response = HeroDTO
+//    
+//    // Usamos GET como método porque queremos obtener algo
+//    var method: Methods = .GET
+//    
+//    // Path que será determinado dinámicanmente con el heroId
+//    var path: String = "/api/heros/name"
+//    
+//    init(heroName: String = "") {
+//        print("id")
+//        self.path = "/api/heros/\(heroName)"
+//        print("Request path created: \(self.path)")
+//    }
+//}
 
 // Este APIRequest tiene la estructura que maneja la solicitud HTTPpara obtener los detalles de un sólo héroe
 //struct GetHeroDetailAPIRequest: HTTPRequest {

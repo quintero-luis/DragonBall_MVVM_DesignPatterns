@@ -21,28 +21,62 @@ protocol GetHeroesDetailUseCaseProtocol {
 }
 
 final class GetHeroesDetailUseCase: GetHeroesDetailUseCaseProtocol {
-    private let request: GetHeroDetailAPIRequest
-    
-    // Inicializador que recibe el request de la API
-    init(request: GetHeroDetailAPIRequest) {
-        self.request = request
-    }
-    
-    // run() es el Método para obtener datos de la API
-    func run(heroName: String, completion: @escaping (Result<HeroModel, any Error>) -> Void) {
-        // Se crea el request, pasándole el heroId
-        let request = GetHeroDetailAPIRequest(heroName: heroName)
-        request.perform { result in
-            switch result {
-            case .success(let heroDTO):
-                // Si la solicitud es exitosa, mapeamos el HeroDTO a HeroModel
-                let mapper = HeroDTOToHeroModelMapper()
-                let heroModel = mapper.map(heroDTO)
-                
-                completion(.success(heroModel))
-            case .failure(let error):
-                completion(.failure(error))
+    func run(heroName: String, completion: @escaping (Result<HeroModel, Error>) -> Void) {
+        GetHeroesAPIRequest(name: heroName)
+            .perform { result in
+                do {
+                    let heroDTOs = try result.get()  // Esto es un array [HeroDTO]
+                    
+                    // Asegurar que el array tiene al menos un elemento
+                    guard let heroDTO = heroDTOs.first else {
+                        completion(.failure(NSError(domain: "GetHeroesDetailUseCase", code: 404, userInfo: [NSLocalizedDescriptionKey: "Hero not found"])))
+                        return
+                    }
+                    
+                    let mapper = HeroDTOToHeroModelMapper()
+                    let hero = mapper.map(heroDTO)
+                    completion(.success(hero))
+                } catch {
+                    completion(.failure(error))
+                }
             }
-        }
     }
 }
+
+
+
+
+
+
+//final class GetHeroesDetailUseCase: GetHeroesDetailUseCaseProtocol {
+//    private let request: GetHeroDetailAPIRequest
+//    
+//    // Inicializador que recibe el request de la API
+//    init(request: GetHeroDetailAPIRequest) {
+//        self.request = request
+//    }
+//    
+//    // run() es el Método para obtener datos de la API
+//    func run(heroName: String, completion: @escaping (Result<HeroModel, any Error>) -> Void) {
+//        // Se crea el request, pasándole el heroId
+//        let request = GetHeroDetailAPIRequest(heroName: heroName)
+//        
+//        print("Request URL: \(request.path)")
+//        
+//        request.perform { result in
+//            switch result {
+//            case .success(let heroDTO):
+//                // Si la solicitud es exitosa, mapeamos el HeroDTO a HeroModel
+//                print("Hero DTO received: \(heroDTO)")
+//                let mapper = HeroDTOToHeroModelMapper()
+//                let heroModel = mapper.map(heroDTO)
+//                print("Mapped Hero: \(heroModel)")
+//                
+//                completion(.success(heroModel))
+//            case .failure(let error):
+//                print("Error fetching hero details: \(error)")
+//                completion(.failure(error))
+//            }
+//        }
+//    }
+//}
