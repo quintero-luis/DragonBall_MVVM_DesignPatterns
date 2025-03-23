@@ -42,7 +42,6 @@ final class HeroesListViewModel {
             // Si tiene éxito, guarda los datos del héroe en el ViewModel y actualiza el estado a success
             
             do {
-                print("ggagf")
                 self?.heroes = try result.get()
                 self?.onStateChanged.update(.success)
             } catch {

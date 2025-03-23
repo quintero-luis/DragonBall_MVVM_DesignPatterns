@@ -10,19 +10,19 @@ import Foundation
 struct GetHeroDetailAPIRequest: HTTPRequest {
     // Esperar respuesta de tipo HeroDTO data transfer object
     typealias Response = [HeroDTO]
+    
     let method: Methods = .POST
-    // Path que será determinado dinámicanmente con el heroId
     let path: String = "/api/heros/all"
     let body: (any Encodable)?
     
-    init(heroName: String = "") {
-        body = RequestDTO(heroName: "Goku")
+    init(name: String = "") {
+        body = RequestDTO(name: name)
     }
 }
 
 private extension GetHeroDetailAPIRequest {
     struct RequestDTO: Codable {
-        let heroName: String
+        let name: String
     }
 }
 
