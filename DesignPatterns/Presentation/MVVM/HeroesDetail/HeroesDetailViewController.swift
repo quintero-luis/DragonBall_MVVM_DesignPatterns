@@ -14,7 +14,7 @@ class HeroesDetailViewController: UIViewController {
     
     @IBOutlet weak var nameLabelDetail: UILabel!
     
-    @IBOutlet weak var descriptionLabelDetail: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     private let viewModel: HeroesDetailViewModel
         
@@ -35,13 +35,13 @@ class HeroesDetailViewController: UIViewController {
             super.viewDidLoad()
             print("HeroesDetailViewController loaded")
             bind()
-            // Cargar los detalles del héroe con el ID correspondiente
-    //        if let heroName = viewModel.heroDetail?.name {
-    //            print("Loading hero details for heroId: \(heroName)")
-    //            viewModel.loadHeroDetail(heroName: heroName)
-    //                } else {
-    //                    print("No heroId found in viewModel")
-    //                }
+             //Cargar los detalles del héroe con el ID correspondiente
+            if let heroName = viewModel.heroDetail?.name {
+                print("Loading hero details for heroId: \(heroName)")
+                viewModel.loadHeroDetail(heroName: heroName)
+                    } else {
+                        print("No heroId found in viewModel")
+                    }
             viewModel.loadHeroDetail(heroName: heroName)
             print("sggsg")
         }
@@ -60,7 +60,7 @@ class HeroesDetailViewController: UIViewController {
         private func renderSuccess(_ hero: HeroModel) {
     //         Asignar los datos del héroe a los elementos de la vista
             nameLabelDetail.text = hero.name
-            descriptionLabelDetail.text = hero.description
+            descriptionTextView.text = hero.description
             imageViewDetail.setImage(hero.photo)
         }
         
