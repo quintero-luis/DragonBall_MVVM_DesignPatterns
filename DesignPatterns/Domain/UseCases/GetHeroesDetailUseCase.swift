@@ -21,17 +21,11 @@ protocol GetHeroesDetailUseCaseProtocol {
 }
 
 final class GetHeroesDetailUseCase: GetHeroesDetailUseCaseProtocol {
-    private let request: GetHeroDetailAPIRequest
-    
-    // Inicializador que recibe el request de la API
-    init(request: GetHeroDetailAPIRequest) {
-        self.request = request
-    }
-    
+
     // run() es el Método para obtener datos de la API
     func run(heroName: String, completion: @escaping (Result<HeroModel, any Error>) -> Void) {
         // Se crea el request, pasándole el heroId
-        let request = GetHeroDetailAPIRequest()
+        let request = GetHeroDetailAPIRequest(name: heroName)
         request.perform { result in
             switch result {
             case .success(let heroDTO):
@@ -48,41 +42,3 @@ final class GetHeroesDetailUseCase: GetHeroesDetailUseCaseProtocol {
         }
     }
 }
-
-
-
-
-
-
-//final class GetHeroesDetailUseCase: GetHeroesDetailUseCaseProtocol {
-//    private let request: GetHeroDetailAPIRequest
-//    
-//    // Inicializador que recibe el request de la API
-//    init(request: GetHeroDetailAPIRequest) {
-//        self.request = request
-//    }
-//    
-//    // run() es el Método para obtener datos de la API
-//    func run(heroName: String, completion: @escaping (Result<HeroModel, any Error>) -> Void) {
-//        // Se crea el request, pasándole el heroId
-//        let request = GetHeroDetailAPIRequest(heroName: heroName)
-//        
-//        print("Request URL: \(request.path)")
-//        
-//        request.perform { result in
-//            switch result {
-//            case .success(let heroDTO):
-//                // Si la solicitud es exitosa, mapeamos el HeroDTO a HeroModel
-//                print("Hero DTO received: \(heroDTO)")
-//                let mapper = HeroDTOToHeroModelMapper()
-//                let heroModel = mapper.map(heroDTO)
-//                print("Mapped Hero: \(heroModel)")
-//                
-//                completion(.success(heroModel))
-//            case .failure(let error):
-//                print("Error fetching hero details: \(error)")
-//                completion(.failure(error))
-//            }
-//        }
-//    }
-//}

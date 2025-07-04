@@ -31,7 +31,9 @@ final class SplashViewController: UIViewController {
                 self?.setAnimation(false)
             case .ready:
                 self?.setAnimation(false)
-                self?.present(LoginBuilder().build(), animated: true)
+//                self?.present(LoginBuilder().build(), animated: true)
+                let loginVC = LoginBuilder().build()
+                self?.navigationController?.pushViewController(loginVC, animated: true)
             }
         }
     }
@@ -48,6 +50,3 @@ final class SplashViewController: UIViewController {
     }
 }
 
-//#Preview {
-//    SplashBuilder().build()
-//}

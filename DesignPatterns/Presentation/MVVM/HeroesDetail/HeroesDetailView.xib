@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="top" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="3xL-6W-RaL">
-                    <rect key="frame" x="16" y="80" width="361" height="688"/>
+                    <rect key="frame" x="16" y="96" width="361" height="672"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Wj-yL-99j" customClass="AsyncImage" customModule="DesignPatterns" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="361" height="200"/>
@@ -39,7 +39,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fdT-3p-2gX" userLabel="heroDescription">
-                            <rect key="frame" x="0.0" y="245.66666666666671" width="361" height="442.33333333333326"/>
+                            <rect key="frame" x="0.0" y="245.66666666666671" width="361" height="426.33333333333326"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <color key="textColor" systemColor="labelColor"/>
@@ -55,7 +55,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3xL-6W-RaL" secondAttribute="trailing" constant="16" id="MBC-HQ-OfL"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3xL-6W-RaL" secondAttribute="bottom" constant="16" id="MTb-7m-qu3"/>
                 <constraint firstItem="3xL-6W-RaL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="lO0-Zg-HDM"/>
-                <constraint firstItem="3xL-6W-RaL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="pxE-Gf-KsU"/>
+                <constraint firstItem="3xL-6W-RaL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="96" id="pxE-Gf-KsU"/>
             </constraints>
             <point key="canvasLocation" x="17.557251908396946" y="-11.267605633802818"/>
         </view>

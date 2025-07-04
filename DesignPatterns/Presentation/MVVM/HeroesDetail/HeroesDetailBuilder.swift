@@ -11,11 +11,12 @@ import UIKit
 
 final class HeroesDetailBuilder {
     func build(heroName: String) -> UIViewController {
-        let useCase = GetHeroesDetailUseCase(request: GetHeroDetailAPIRequest())
-        let viewModel = HeroesDetailViewModel(useCase: useCase)
-        let viewController = HeroesDetailViewController(viewModel: viewModel)
-        viewController.heroName = heroName
-        return viewController
-    }
+            let request = GetHeroDetailAPIRequest(name: heroName)
+            let useCase = GetHeroesDetailUseCase()
+            let viewModel = HeroesDetailViewModel(useCase: useCase)
+            let viewController = HeroesDetailViewController(viewModel: viewModel)
+            viewController.heroName = heroName
+            return viewController
+        }
 }
 

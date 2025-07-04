@@ -44,7 +44,11 @@ final class LoginViewController: UIViewController {
         activityIndicator.stopAnimating()
         loginButton.isHidden = false
         errorLabel.isHidden = true
-        present(HeroesListBuilder().build(), animated: true)
+        
+        let heroesListVC = HeroesListBuilder().build()
+        navigationController?.pushViewController(heroesListVC, animated: true)
+        
+//        present(HeroesListBuilder().build(), animated: true)
     }
     
     private func renderLoading() {
@@ -61,6 +65,3 @@ final class LoginViewController: UIViewController {
     }
 }
 
-//#Preview {
-//    LoginBuilder().build()
-//}

@@ -13,7 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
-        self.window?.rootViewController = SplashBuilder().build()
+        let splashVC = SplashBuilder().build()
+        let navController = UINavigationController(rootViewController: splashVC)
+        self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
     }
 }

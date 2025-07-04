@@ -66,15 +66,15 @@ class HeroesDetailViewController: UIViewController {
         
         private func renderError(_ message: String) {
                 // Mostrar el error en la vista, por ejemplo con un alerta
-    //            let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-    //            alert.addAction(UIAlertAction(title: "OK", style: .default))
-    //            present(alert, animated: true)
+                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                present(alert, animated: true)
             }
 
             private func renderLoading() {
                 // Mostrar actividad de carga (puedes usar un UIActivityIndicator)
-    //            print("Loading...")
-    //            activityIndicatorDetail.startAnimating()
+//                print("Loading...")
+//                activityIndicatorDetail.startAnimating()
                 
             }
     }

@@ -8,10 +8,7 @@ final class HeroesListBuilder {
         
         let rootViewController = HeroesListViewController(viewModel: viewModel)
         
-        let controller = UINavigationController(rootViewController: rootViewController)
         
-//        controller.modalPresentationStyle = .fullScreen
-        
-        return controller
+        return rootViewController
     }
 }
