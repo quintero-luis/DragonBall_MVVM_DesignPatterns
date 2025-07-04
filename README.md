@@ -1,6 +1,6 @@
 # Dragon Ball Heroes App
 
-An iOS app that displays a list of Dragon Ball heroes, allowing users to view detailed information and transformations for each hero.
+An iOS app that displays a list of Dragon Ball heroes, allowing users to view detailed hero information.
 
 ## Technologies used:
 
@@ -8,7 +8,6 @@ An iOS app that displays a list of Dragon Ball heroes, allowing users to view de
 - UIKit
 - MVVM architecture
 - UINavigationController for navigation using `pushViewController` method
-- Asynchronous data loading and error handling
 
 ## Features:
 
