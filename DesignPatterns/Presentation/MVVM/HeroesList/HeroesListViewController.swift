@@ -76,7 +76,8 @@ class HeroesListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            HeroCell.height
+//            HeroCell.height
+            return 132
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
